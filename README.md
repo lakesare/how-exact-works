@@ -31,3 +31,58 @@ Bonn Seminar on Formalised Mathematics, 2026.
 
 [presentation.pdf](presentation/presentation.pdf)
 
+## Tools
+
+If you'd like to experiment with the way *LazyDiscrTree* generates the trie, go to [/lean_tools](lean_tools).
+
+```lean
+#showTriePath Nat.add_comm
+-- THEOREM (16 Keys):
+-- [
+--   Key.const Eq arity:3,
+--   Key.const Nat arity:0,
+--   Key.const HAdd.hAdd arity:6,
+--   Key.const Nat arity:0,
+--   Key.const Nat arity:0,
+--   Key.const Nat arity:0,
+--   *,
+--   *,
+--   *,
+--   Key.const HAdd.hAdd arity:6,
+--   Key.const Nat arity:0,
+--   Key.const Nat arity:0,
+--   Key.const Nat arity:0,
+--   *,
+--   *,
+--   *
+-- ]
+```
+
+```lean
+example (n m : Nat) : n + m = m + n := by
+  showGoalPath
+  -- GOAL (20 Keys):
+  -- [
+  --   Key.const Eq arity:3,
+  --   Key.const Nat arity:0,
+  --   Key.const HAdd.hAdd arity:6,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const instHAdd arity:2,
+  --   Key.const Nat arity:0,
+  --   Key.const instAddNat arity:0,
+  --   Key.fvar _uniq.69 arity:0,
+  --   Key.fvar _uniq.70 arity:0,
+  --   Key.const HAdd.hAdd arity:6,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const instHAdd arity:2,
+  --   Key.const Nat arity:0,
+  --   Key.const instAddNat arity:0,
+  --   Key.fvar _uniq.70 arity:0,
+  --   Key.fvar _uniq.69 arity:0
+  -- ]
+  exact Nat.add_comm n m
+```

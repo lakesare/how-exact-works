@@ -1,6 +1,4 @@
-# lean_tools
-
-Lean 4 utilities for inspecting `LazyDiscrTree` key paths — useful for understanding how `exact?` indexes theorems and searches for goals.
+Lean 4 scripts for inspecting `LazyDiscrTree` key paths. Useful for understanding how `exact?` indexes theorems and searches for goals.
 
 ## Commands
 
@@ -38,6 +36,29 @@ Tactic that shows the key path for the current proof goal. This is the path `exa
 ```lean
 example (n m : Nat) : n + m = m + n := by
   showGoalPath
+  -- GOAL (20 Keys):
+  -- [
+  --   Key.const Eq arity:3,
+  --   Key.const Nat arity:0,
+  --   Key.const HAdd.hAdd arity:6,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const instHAdd arity:2,
+  --   Key.const Nat arity:0,
+  --   Key.const instAddNat arity:0,
+  --   Key.fvar _uniq.69 arity:0,
+  --   Key.fvar _uniq.70 arity:0,
+  --   Key.const HAdd.hAdd arity:6,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const Nat arity:0,
+  --   Key.const instHAdd arity:2,
+  --   Key.const Nat arity:0,
+  --   Key.const instAddNat arity:0,
+  --   Key.fvar _uniq.70 arity:0,
+  --   Key.fvar _uniq.69 arity:0
+  -- ]
   exact Nat.add_comm n m
 ```
 
