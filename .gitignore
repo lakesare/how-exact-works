@@ -1,0 +1,21 @@
+# Root-level pdflatex output (canonical output lives in presentation/)
+/presentation.pdf
+/presentation.log
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.auxlock
+tikz-cache/
+
+.lake
+# Not published
+lean_experiments/
+textbook/
