@@ -2,7 +2,7 @@
 <h2 align="center">Search Tactics in Lean 4: <code>exact?</code>, <code>apply?</code>, <code>rw?</code></h2>
 
 <h4 align="center">
-Bonn Seminar on Formalised Mathematics, 2026.
+Bonn Seminar on Formalised Mathematics, 2026. 
 </h4>
 
 <br>
@@ -15,14 +15,13 @@ Bonn Seminar on Formalised Mathematics, 2026.
 
 ## Contents
 
-- **Global Search (Linear Search, Path Indexing, Discrimination Trees)**
+The talk describes the way the "exact?" tactic works in Lean 4. 
 
-- **Local Search (`solveByElim` tactic)**
-
-- **Similar tactics in other proof assistants**
-
+Rough outline:
+- **Indexing Methods (Linear Search, Path Indexing, Discrimination Trees)**
+- **Closing remaining subgoals (`SolveByElim` tactic)**
+- **Tactics similar to `exact?` in other proof assistants**
 - **History of `exact?`, `apply?`, and `rw?` in Lean**
-
 
 <br>
 
@@ -31,58 +30,13 @@ Bonn Seminar on Formalised Mathematics, 2026.
 
 [presentation.pdf](presentation/presentation.pdf)
 
+## Video
+
+[youtube.com/watch?v=cih-vlU2JLc](https://www.youtube.com/watch?v=cih-vlU2JLc)
+
+
+
 ## Tools
 
 If you'd like to experiment with the way *LazyDiscrTree* generates the trie, go to [/lean_tools](lean_tools).
 
-```lean
-#showTriePath Nat.add_comm
--- THEOREM (16 Keys):
--- [
---   Key.const Eq arity:3,
---   Key.const Nat arity:0,
---   Key.const HAdd.hAdd arity:6,
---   Key.const Nat arity:0,
---   Key.const Nat arity:0,
---   Key.const Nat arity:0,
---   *,
---   *,
---   *,
---   Key.const HAdd.hAdd arity:6,
---   Key.const Nat arity:0,
---   Key.const Nat arity:0,
---   Key.const Nat arity:0,
---   *,
---   *,
---   *
--- ]
-```
-
-```lean
-example (n m : Nat) : n + m = m + n := by
-  showGoalPath
-  -- GOAL (20 Keys):
-  -- [
-  --   Key.const Eq arity:3,
-  --   Key.const Nat arity:0,
-  --   Key.const HAdd.hAdd arity:6,
-  --   Key.const Nat arity:0,
-  --   Key.const Nat arity:0,
-  --   Key.const Nat arity:0,
-  --   Key.const instHAdd arity:2,
-  --   Key.const Nat arity:0,
-  --   Key.const instAddNat arity:0,
-  --   Key.fvar _uniq.69 arity:0,
-  --   Key.fvar _uniq.70 arity:0,
-  --   Key.const HAdd.hAdd arity:6,
-  --   Key.const Nat arity:0,
-  --   Key.const Nat arity:0,
-  --   Key.const Nat arity:0,
-  --   Key.const instHAdd arity:2,
-  --   Key.const Nat arity:0,
-  --   Key.const instAddNat arity:0,
-  --   Key.fvar _uniq.70 arity:0,
-  --   Key.fvar _uniq.69 arity:0
-  -- ]
-  exact Nat.add_comm n m
-```
