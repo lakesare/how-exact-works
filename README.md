@@ -15,13 +15,13 @@ Bonn Seminar on Formalised Mathematics, 2026.
 
 ## Contents
 
-The talk describes the way the "exact?"/"apply?/rw?" tactics works in Lean 4. 
+The talk describes the way the `exact?`/`apply?`/`rw?` tactics works in Lean 4. 
 
 Rough outline:
-- **Indexing Methods (Linear Search, Path Indexing, Discrimination Trees)**
-- **Closing remaining subgoals (`SolveByElim` tactic)**
-- **Tactics similar to `exact?`/`apply?`/`rw?` in other proof assistants**
-- **History of `exact?`, `apply?`, and `rw?` in Lean**
+- Indexing Methods (Linear Search, Path Indexing, Discrimination Trees)
+- Closing remaining subgoals (`SolveByElim` tactic)
+- Tactics similar to `exact?`/`apply?`/`rw?` in other proof assistants**
+- History of `exact?`, `apply?`, and `rw?` in Lean
 
 <br>
 
