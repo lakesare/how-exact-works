@@ -38,5 +38,5 @@ Rough outline:
 
 ## Tools
 
-If you'd like to experiment with the way *LazyDiscrTree* generates the trie, go to [/lean_tools](lean_tools).
+If you'd like to experiment with the way `LazyDiscrTree` generates the trie, go to [/lean_tools](lean_tools).
 
